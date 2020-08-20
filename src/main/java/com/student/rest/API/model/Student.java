@@ -6,15 +6,16 @@ import javax.validation.constraints.NotBlank;
 @Entity
 @Table(name = "students")
 public class Student {
+
     @Id
+    @Column(updatable=false, nullable=false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @NotBlank
     private String name;
 
     @NotBlank
-    @Column(name = "date_of_birth")
     private String dateOfBirth;
 
     @NotBlank
@@ -28,7 +29,7 @@ public class Student {
         this.university = university;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
