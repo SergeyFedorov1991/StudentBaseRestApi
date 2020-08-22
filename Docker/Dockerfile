@@ -1,6 +1,6 @@
 FROM openjdk:11-jre-slim
 
-ENV SPRING_DATASOURCE_URL jdbc:mysql://mysql:3306/mysql
+ENV SPRING_DATASOURCE_URL jdbc:mysql://mysql.dns-private:3306/mysql
 ENV SPRING_DATASOURCE_USERNAME root
 ENV SPRING_DATASOURCE_PASSWORD 123
 ENV APP_DIR /app

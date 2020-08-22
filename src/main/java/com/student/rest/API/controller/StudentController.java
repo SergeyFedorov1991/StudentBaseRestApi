@@ -27,11 +27,13 @@ public class StudentController {
         return students;
     }
 
+    @CrossOrigin
     @DeleteMapping("{id}")
     public void deleteNote(@PathVariable String id) throws StudentNotFoundException {
         studentRepository.delete(findNotesById(id));
     }
 
+    @CrossOrigin
     @GetMapping("{id}")
     public Student getById(@PathVariable String id) throws StudentNotFoundException {
         return findNotesById(id);
@@ -42,6 +44,7 @@ public class StudentController {
         return studentRepository.save(student);
     }
 
+    @CrossOrigin
     @PutMapping("{id}")
     public Student updateNote(@PathVariable String id, @RequestBody Student studentDetails) throws StudentNotFoundException {
 
