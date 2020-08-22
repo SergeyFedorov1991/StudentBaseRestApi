@@ -8,9 +8,8 @@ import javax.validation.constraints.NotBlank;
 public class Student {
 
     @Id
-    @Column(updatable=false, nullable=false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @NotBlank
     private String name;
@@ -29,7 +28,7 @@ public class Student {
         this.university = university;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 

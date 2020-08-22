@@ -10,7 +10,7 @@ public class StudentNotFoundException extends Exception {
     public StudentNotFoundException() {
     }
 
-    public StudentNotFoundException(String student_id) {
+    public StudentNotFoundException(Integer student_id) {
         super(String.format("Student is not found with id : '%s'", student_id));
     }
 

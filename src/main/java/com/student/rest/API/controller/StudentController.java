@@ -16,8 +16,8 @@ public class StudentController {
     @Autowired
     private StudentRepository studentRepository;
 
-    private Student findNotesById(String id) throws StudentNotFoundException {
-        return studentRepository.findById(Integer.parseInt(id)).orElseThrow(() -> new StudentNotFoundException(id));
+    private Student findNotesById(Integer id) throws StudentNotFoundException {
+        return studentRepository.findById(id).orElseThrow(() -> new StudentNotFoundException(id));
     }
 
     @GetMapping
@@ -27,15 +27,13 @@ public class StudentController {
         return students;
     }
 
-    @CrossOrigin
     @DeleteMapping("{id}")
-    public void deleteNote(@PathVariable String id) throws StudentNotFoundException {
+    public void deleteNote(@PathVariable Integer id) throws StudentNotFoundException {
         studentRepository.delete(findNotesById(id));
     }
 
-    @CrossOrigin
     @GetMapping("{id}")
-    public Student getById(@PathVariable String id) throws StudentNotFoundException {
+    public Student getById(@PathVariable Integer id) throws StudentNotFoundException {
         return findNotesById(id);
     }
 
@@ -44,9 +42,8 @@ public class StudentController {
         return studentRepository.save(student);
     }
 
-    @CrossOrigin
     @PutMapping("{id}")
-    public Student updateNote(@PathVariable String id, @RequestBody Student studentDetails) throws StudentNotFoundException {
+    public Student updateNote(@PathVariable Integer id, @RequestBody Student studentDetails) throws StudentNotFoundException {
 
         Student student = findNotesById(id);
         student.setName(studentDetails.getName());
